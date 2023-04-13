@@ -13,12 +13,12 @@
 <style scoped lang="scss">
   @import './assets/mixin.scss';
   header {
-    background-image: linear-gradient(rgb(6 0 9 / 70%), rgb(124 8 138 / 70%)), url(/src/assets/imgs/bg1.jpg);
-    @include bgImgConfig(fixed);
+    @include bgImgConfig(url(/src/assets/imgs/bg1.jpg), fixed, linear-gradient(rgb(6 0 9 / 70%), rgb(124 8 138 / 70%)));
     height: 100vh;
   }
   .header-box {
     max-width: 1140px;
+    width: 90%;
     font-size: 30px;
     @include position(50%, auto, auto, 50%);
     transform: translate(-50%, -50%);

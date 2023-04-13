@@ -16,7 +16,12 @@
   left: $left;
 }
 
-@mixin bgImgConfig($attachment, $size: cover, $position: center ) {
+@mixin bgImgConfig($bgImg, $attachment: fixed, $gradient: none, $size: cover, $position: center) {
+  @if $gradient == none {
+    background-image: $bgImg;
+  } @else {
+    background-image: $gradient, $bgImg;
+  }
   background-size: $size;
   background-position: $position;
   background-attachment: $attachment;
