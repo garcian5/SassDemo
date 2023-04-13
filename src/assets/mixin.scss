@@ -1,0 +1,23 @@
+@mixin gradientFont($gradient) {
+  background-color: #f3ec78;
+  background-image: $gradient;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+
+@mixin position($top, $right, $bottom, $left, $type: absolute) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin bgImgConfig($attachment, $size: cover, $position: center ) {
+  background-size: $size;
+  background-position: $position;
+  background-attachment: $attachment;
+}
