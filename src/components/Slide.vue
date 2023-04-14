@@ -7,7 +7,8 @@
   import { SlideData } from '../data/schema/SlideData';
 
   const props = defineProps({
-    slide: SlideData
+    slide: SlideData,
+    id: {type: Number, default: 0}
   });
 
   const slide: SlideData = reactive<SlideData>({
@@ -19,7 +20,7 @@
     bodyList: []
   });
 
-  const clickedDiv = ref<number | 0>(0);;
+  const clickedDiv = ref<number | 0>(0);
 
   //#region methods
   const setSlideData = () => {
@@ -39,12 +40,24 @@
     console.warn("hello", clickedDiv)
   }
 
+  
+  const scrollToView = (id: number) => {
+    const pageId = "#slide-" + id;
+    let pageBottom = document.querySelector(pageId);
+    if (pageBottom) pageBottom.scrollIntoView();
+  }
+
   onMounted(setSlideData);
   defineExpose({setSlideData});
 </script>
 
 <template>
-  <div class="slide w100 h100">
+  <div class="slide-btns">
+    <div class="arrow-btn prev" @click="scrollToView(props.id-1)"><p>&#9650;</p></div>
+    <div class="arrow-btn next" @click="scrollToView(props.id+1)"><p>&#9660;</p></div>
+  </div>
+
+  <div class="slide w100 h100" :id="'slide-' + props.id">
     <div class="slide-title">{{ slide.title }}</div>
 
     <!-- body will need to be embeded as an html element -->
@@ -69,11 +82,11 @@
     </div>
   </div>
 
-  <div @click="selectDiv(1)" :class="{'switchFilter': clickedDiv == 1}">1</div>
+  <!-- <div @click="selectDiv(1)" :class="{'switchFilter': clickedDiv == 1}">1</div>
   <div @click="selectDiv(2)" :class="{'switchFilter': clickedDiv == 2}">2</div>
 
   <h3 class="hover">Hover Me</h3>
-  <img src="https://picsum.photos/id/1022/200/200" alt="a nighty sky">
+  <img src="https://picsum.photos/id/1022/200/200" alt="a nighty sky"> -->
 </template>
 
 <style lang="scss" scoped>
@@ -118,5 +131,32 @@
   transition: .5s, -webkit-mask-position .5s .5s;
   --animate: 100%;
   transition: .5s, -webkit-mask-size .5s .5s;
+}
+
+.slide-btns {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.btn-def {
+  @include textFormats(40px, 600);
+  transform: translateX(-50%);
+  z-index: 900;
+  cursor: pointer;
+  opacity: .05;
+  box-shadow: none;
+  &:hover {
+    color: $dark;
+    transition: all .4s;
+    opacity: .8;
+  }
+}
+.prev {
+  @include position(10px, auto, auto, 50%);
+  @extend .btn-def;
+}
+.next {
+  @include position(auto, auto, 10px, 50%);
+  @extend .btn-def;
 }
 </style>

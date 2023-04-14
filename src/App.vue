@@ -14,7 +14,7 @@ const scrollToView = () => {
       <h4>By Nheljee Garcia</h4>
     </div>
 
-    <div class="go-down-btn" @click="scrollToView">
+    <div class="arrow-btn" @click="scrollToView">
       <p>&#9660;</p>
     </div>
   </header>
@@ -39,31 +39,6 @@ const scrollToView = () => {
       @include position(50%, auto, auto, 50%);
       transform: translate(-50%, -50%);
       color: $primary-color;
-    }
-
-    .go-down-btn {
-      @include position(auto, auto, 25px, 50%);
-      transform: translateX(-50%);
-      border: 5px solid $primary-color;
-      opacity: 0.5;
-      border-radius: 50%;
-      box-shadow: 3px 6px 12px 7px rgba(0,0,0,0.58);
-      background: #444444b8;
-      width: 65px;
-      height: 65px;
-      cursor: pointer;
-      p {
-        color: $primary-color;
-        font-size: 40px;
-        margin: 0;
-        padding-top: 4px;
-        text-align: center;
-      }
-
-      &:hover {
-        background: #1d1c1cb8;
-        transition: all 1s;
-      }
     }
   }
 
