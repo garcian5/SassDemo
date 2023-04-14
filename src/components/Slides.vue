@@ -39,7 +39,7 @@
       bodyList: [
         {
           parent: 'SASS/SCSS',
-          children: ['What is SASS?', 'Nesting & Reference symbols', 'Variables & Object Variables', 'Mixins, Functions, @extends', 'Flow Control']
+          children: ['What is SASS?', 'Nesting', 'Variables & Object Variables', 'Mixins, Functions, @extends', 'Flow Control']
         },
         {
           parent: 'Different Ways to Create Grid Layouts with CSS',
@@ -59,7 +59,7 @@
         }
       ]
     }),
-  
+
     new SlideData({
       title: 'SASS/SCSS',
       subTitle: 'What is SASS',
@@ -76,9 +76,35 @@
           parent: 'The SASS syntax (.sass)',
           children: ['A rarely used syntax.', 'Uses indentation rather than curly braces to nest statements, and newlines instead of semicolons to separate them.', 'Think: Python syntax']
         }
+      ],
+      links: [
+        {
+          linkName: 'Sass Documentation Link',
+          href: 'https://sass-lang.com/'
+        }
       ]
-    })
+    }),
 
+    new SlideData({
+      title: 'Nesting',
+      bodyIsHTML: false,
+      bodyText: `When dealing with a lot of custom styling where keeping track of your CSS classes gets difficult, Nesting becomes your best friend!`,
+      bodyList: [
+        {
+          parent: 'Sass will let you nest your CSS selectors in a way that follows the same visual hierarchy of your HTML.',
+          children: []
+        },
+        {
+          parent: 'Rather than having to repeat the same selectors over and over again, you can write one style rules inside another. Sass will automatically combine the outer rule’s selector with the inner rule’s.',
+          children: []
+        },
+        {
+          parent: 'Be careful with too much nesting!',
+          children: []
+        }
+      ],
+      imgs: ['public/imgs/nest.jpg', 'public/imgs/nest2.jpg']
+    }),
   ];
 </script>
 

@@ -18,7 +18,8 @@
     bodyIsHTML: true,
     bodyText: null,
     bodyList: [],
-    subTitle: null
+    subTitle: null,
+    links: []
   });
 
   const clickedDiv = ref<number | 0>(0);
@@ -33,6 +34,7 @@
       slide.bodyIsHTML = props.slide.bodyIsHTML
       slide.bodyText = props.slide.bodyText;
       slide.bodyList = props.slide.bodyList;
+      slide.links = props.slide.links;
     }
   }
   //#endregion
@@ -47,6 +49,10 @@
     const pageId = "#slide-" + id;
     let pageBottom = document.querySelector(pageId);
     if (pageBottom) pageBottom.scrollIntoView();
+  }
+
+  const getPic = (index: number) => {
+    return '../assets/' + slide.imgs[index] + '.png';
   }
 
   onMounted(setSlideData);
@@ -79,10 +85,14 @@
           </ul>
         </li>
       </ul>
+      
+      <div class="imgs" v-if="slide.imgs.length > 0">
+        <img v-for="(img, index) in slide.imgs" :src="img" alt="" :key="img + index" />
+      </div>
     </div>
 
-    <div>
-      <img v-for="(img, index) in slide.imgs" :src="img" alt="" :key="img + index" />
+    <div class="links" v-if="slide.links.length > 0">
+      <a v-for="(link, index) in slide.links" :href="link.href" :key="index">{{ link.linkName }}</a>
     </div>
   </div>
 
@@ -128,6 +138,15 @@
   }
 }
 
+.imgs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  img {
+    max-height: 200px;
+  }
+}
 
 /* https://freefrontend.com/css-border-animations/ */
 /* https://codepen.io/t_afif/pen/rNJegrz */
