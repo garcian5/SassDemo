@@ -37,16 +37,17 @@
 </script>
 
 <template>
-  <div>
-    <h3>{{ slide.title }}</h3>
+  <div class="slide w100 h100">
+    <div class="slide-title">{{ slide.title }}</div>
 
     <!-- body will need to be embeded as an html element -->
-    <template v-if="slide.bodyIsHTML">
+    <div class="slide-body" v-if="slide.bodyIsHTML">
       <div v-html="slide.bodyHTML"></div>
-    </template>
-    <template v-else>
-      <p v-if="slide.bodyText">{{ slide.bodyText }}</p>
-      <ul v-if="slide.bodyList.length > 0">
+    </div>
+    <div class="slide-body" v-else>
+      <p class="slide-text" v-if="slide.bodyText">{{ slide.bodyText }}</p>
+
+      <ul class="slide-text" v-if="slide.bodyList.length > 0">
         <li v-for="(listItem, index) in slide.bodyList" :key="listItem.parent + index">
           {{ listItem.parent }}
           <ul v-if="listItem.children.length > 0">
@@ -54,7 +55,7 @@
           </ul>
         </li>
       </ul>
-    </template>
+    </div>
 
     <div>
       <img v-for="(img, index) in slide.imgs" :src="img" alt="" :key="img + index" />
@@ -63,5 +64,29 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/mixin.scss';
+@import '../assets/variables.scss';
+.slide {
+  padding: 20px;
+  @include bgImgConfig(url(/src/assets/imgs/bg2.jpg), fixed);
+}
+.slide-title {
+  text-align: center;
+  @include textFormats(65px, 700);
+  @include gradientFont(linear-gradient(45deg, #1c3aaf, #53af42), #78f392);
+}
 
+.slide-body {
+  border: 2px solid $tertiary-color;
+  border-radius: 20px;
+  min-height: calc(100vh - 160px);
+  margin-top: 20px;
+  .slide-text {
+    @include textFormats(20px, 500, $dark);
+    margin: 30px;
+    li {
+      margin: 10px auto;
+    }
+  }
+}
 </style>

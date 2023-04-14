@@ -38,9 +38,7 @@
 </script>
 
 <template>
-  <div>
-    <slide :slide="agenda"></slide>
-  </div>
+  <slide :slide="agenda"></slide>
 </template>
 
 <style lang="scss" scoped>
