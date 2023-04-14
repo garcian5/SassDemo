@@ -1,5 +1,7 @@
-@mixin gradientFont($gradient) {
-  background-color: #f3ec78;
+@import './variables.scss';
+
+@mixin gradientFont($gradient, $bgCol: #f3ec78) {
+  background-color: $bgCol;
   background-image: $gradient;
   background-size: 100%;
   -webkit-background-clip: text;
@@ -27,4 +29,10 @@
   background-size: $size;
   background-position: $position;
   background-attachment: $attachment;
+}
+
+@mixin textFormats($size, $weight: 500, $color: $secondary-color) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
 }
