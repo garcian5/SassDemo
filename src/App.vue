@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Slides from "./components/Slides.vue"
+
 </script>
 
 <template>
@@ -8,6 +10,10 @@
       <h4>By Nheljee Garcia</h4>
     </div>
   </header>
+
+  <main>
+    <Slides/>
+  </main>
 </template>
 
 <style scoped lang="scss">
