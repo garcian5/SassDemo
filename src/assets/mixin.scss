@@ -19,6 +19,8 @@
 @mixin bgImgConfig($bgImg, $attachment: fixed, $gradient: none, $size: cover, $position: center) {
   @if $gradient == none {
     background-image: $bgImg;
+  } @else if $gradient != none and $bgImg == none {
+    background-image: $gradient;
   } @else {
     background-image: $gradient, $bgImg;
   }

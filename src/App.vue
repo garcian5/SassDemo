@@ -73,5 +73,6 @@ const scrollToView = () => {
 
   main {
     height: 100vh;
+    @include bgImgConfig(none, fixed, linear-gradient(rgb(165 132 181 / 86%), rgb(124 8 138 / 87%)));
   }
 </style>
