@@ -5,6 +5,7 @@ export interface IBodyList {
 
 export class SlideData {
   title: string = 'New Title';
+  subTitle: string | null = null;
   bodyHTML: string = '<p>New Body</p>';
   imgs: string[] = [];
 

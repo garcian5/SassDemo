@@ -62,27 +62,19 @@
   
     new SlideData({
       title: 'SASS/SCSS',
+      subTitle: 'What is SASS',
       bodyIsHTML: false,
+      bodyText: `SASS stands for Syntactically Awesome Stylesheet. It is a superset of CSS which means all valid CSS is also valid SCSS.
+      
+      Fun Fact: Sass has two syntaxes`,
       bodyList: [
         {
-          parent: 'SASS/SCSS',
-          children: ['What is SASS?', 'Nesting & Reference symbols', 'Variables & Object Variables', 'Mixins, Functions, @extends', 'Flow Control']
+          parent: 'The SCSS syntax (.scss)',
+          children: ['Most commonly used.', 'Think: Javascript syntax']
         },
         {
-          parent: 'Different Ways to Create Grid Layouts with CSS',
-          children: ["Flex vs Grids vs Tables vs Float, what really is the best way?"]
-        },
-        {
-          parent: 'How I would have implemented the switchFilter (borders) using CSS methods',
-          children: ['Definitely not a cry for help.']
-        },
-        {
-          parent: 'The different tools/methods to test your application & Where to get CSS info/resources',
-          children: []
-        },
-        {
-          parent: 'Questions',
-          children: []
+          parent: 'The SASS syntax (.sass)',
+          children: ['A rarely used syntax.', 'Uses indentation rather than curly braces to nest statements, and newlines instead of semicolons to separate them.', 'Think: Python syntax']
         }
       ]
     })

@@ -17,7 +17,8 @@
     imgs: [],
     bodyIsHTML: true,
     bodyText: null,
-    bodyList: []
+    bodyList: [],
+    subTitle: null
   });
 
   const clickedDiv = ref<number | 0>(0);
@@ -26,6 +27,7 @@
   const setSlideData = () => {
     if (props.slide) {
       slide.title = props.slide.title;
+      slide.subTitle = props.slide.subTitle;
       slide.bodyHTML = props.slide.bodyHTML;
       slide.imgs = props.slide.imgs;
       slide.bodyIsHTML = props.slide.bodyIsHTML
@@ -65,6 +67,8 @@
       <div v-html="slide.bodyHTML"></div>
     </div>
     <div class="slide-body" v-else>
+      <div class="slide-subtitle" v-if="slide.subTitle">{{ slide.subTitle }}</div>
+
       <p class="slide-text" v-if="slide.bodyText">{{ slide.bodyText }}</p>
 
       <ul class="slide-text" v-if="slide.bodyList.length > 0">
@@ -94,7 +98,7 @@
 @import '../assets/variables.scss';
 .slide {
   padding: 20px;
-  @include bgImgConfig(url(/src/assets/imgs/bg2.jpg), fixed);
+  @include bgImgConfig(url(/src/assets/imgs/bg4.jpg), fixed);
 }
 .slide-title {
   text-align: center;
@@ -102,14 +106,22 @@
   @include gradientFont(linear-gradient(45deg, #1c3aaf, #53af42), #78f392);
 }
 
+.slide-subtitle {
+  @include textFormats(30px, 600);
+  color: $secondary-color;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .slide-body {
   border: 2px solid $tertiary-color;
   border-radius: 20px;
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 180px);
   margin-top: 20px;
   .slide-text {
     @include textFormats(20px, 500, $dark);
     margin: 30px;
+    white-space: pre-line;
     li {
       margin: 10px auto;
     }
