@@ -19,7 +19,9 @@
     bodyText: null,
     bodyList: [],
     subTitle: null,
-    links: []
+    links: [],
+    smallText: null,
+    showSwitchFilter: false
   });
 
   const clickedDiv = ref<number | 0>(0);
@@ -35,6 +37,8 @@
       slide.bodyText = props.slide.bodyText;
       slide.bodyList = props.slide.bodyList;
       slide.links = props.slide.links;
+      slide.smallText = props.slide.smallText;
+      slide.showSwitchFilter = props.slide.showSwitchFilter;
     }
   }
   //#endregion
@@ -74,6 +78,7 @@
     </div>
     <div class="slide-body" v-else>
       <div class="slide-subtitle" v-if="slide.subTitle">{{ slide.subTitle }}</div>
+      <small class="slide-small" v-if="slide.smallText">{{ slide.smallText }}</small>
 
       <p class="slide-text" v-if="slide.bodyText">{{ slide.bodyText }}</p>
 
@@ -85,6 +90,11 @@
           </ul>
         </li>
       </ul>
+
+      <div class="container" v-if="slide.showSwitchFilter">
+        <div class="box" @click="selectDiv(1)" :class="{'switchFilter': clickedDiv == 1}">1</div>
+        <div class="box" @click="selectDiv(2)" :class="{'switchFilter': clickedDiv == 2}">2</div>
+      </div>
       
       <div class="imgs" v-if="slide.imgs.length > 0">
         <img v-for="(img, index) in slide.imgs" :src="img" alt="" :key="img + index" />
@@ -122,6 +132,9 @@
   text-align: center;
   margin-top: 10px;
 }
+.slide-small {
+  @include textFormats(20px, 400);
+}
 
 .slide-body {
   border: 2px solid $tertiary-color;
@@ -148,6 +161,20 @@
   }
 }
 
+.container {
+  position: relative;
+  z-index: 900;
+  display: flex;
+  .box {
+    flex: 1;
+    padding: 50px 0;
+    // border: 2px solid $dark;
+    // border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
 /* https://freefrontend.com/css-border-animations/ */
 /* https://codepen.io/t_afif/pen/rNJegrz */
 .switchFilter {
@@ -159,9 +186,9 @@
     conic-gradient(at bottom 4px left  4px,  #0000 90deg,#000 0)
      0   var(--animate,200%)/var(--animate,4px) 200% border-box no-repeat,
     linear-gradient(#000 0 0) padding-box no-repeat;
-  transition: .5s, -webkit-mask-position .5s .5s;
+  transition: .3s, -webkit-mask-position .3s .3s;
   --animate: 100%;
-  transition: .5s, -webkit-mask-size .5s .5s;
+  transition: .3s, -webkit-mask-size .3s .3s;
 }
 
 .slide-btns {
@@ -172,7 +199,7 @@
 .btn-def {
   @include textFormats(40px, 600);
   transform: translateX(-50%);
-  z-index: 900;
+  z-index: 10;
   cursor: pointer;
   opacity: .05;
   box-shadow: none;

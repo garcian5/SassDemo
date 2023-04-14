@@ -19,6 +19,9 @@ export class SlideData {
   bodyList: IBodyList[] = [];
 
   links: ILinks[] = [];
+  smallText: string | null = null;
+
+  showSwitchFilter: boolean = false;
 
   constructor(slide?: Partial<SlideData>) {
     Object.assign(this, slide);

@@ -39,7 +39,7 @@
       bodyList: [
         {
           parent: 'SASS/SCSS',
-          children: ['What is SASS?', 'Nesting', 'Variables', 'Mixins, Functions, @extend', 'Flow Control']
+          children: ['What is SASS?', 'Nesting', 'Variables', '"At-Rules"', 'Flow Control']
         },
         {
           parent: 'Different Ways to Create Grid Layouts with CSS',
@@ -124,6 +124,59 @@
           children: []
         }
       ]
+    }),
+
+    new SlideData({
+      title: '"At-Rules"',
+      bodyIsHTML: false,
+      bodyText: 'Some of the most useful "At-Rules" are:',
+      bodyList: [
+        {
+          parent: 'Mixins = allows you to define styles that can be re-used throughout your stylesheet.',
+          children: ['@Mixin = the directive lets you create CSS code that is to be reused.', '@Include = directive is created to let you use (include) the mixin.']
+        },
+        {
+          parent: 'Functions = allows you to define complex operations on SassScript values that you can re-use throughout your stylesheet.',
+          children: ['They make it easy to abstract out common formulas and behaviors in a readable way', 'Mixins and functions are very similar but remember that functions should be used to compute values and return values while mixins should define styles.']
+        },
+        {
+          parent: 'Extension = allows you share a set of CSS properties from one selector to another.',
+          children: ['This is useful if you have almost identically styled elements that only differ in some small details.']
+        }
+      ]
+    }),
+
+    new SlideData({
+      title: '"Flow Control"',
+      bodyIsHTML: false,
+      bodyText: `These are another set of "At-Rules" that make it possible to control whether styles get emitted, or to emit them multiple times with small variations.      
+      
+      They can also be used in mixins and functions to write small algorithms to make writing your Sass easier.`,
+      bodyList: [
+        {
+          parent: '@if controls whether or not a block is evaluated.',
+          children: []
+        },
+        {
+          parent: '@each evaluates a block for each element in a list or each pair in a map.',
+          children: []
+        },
+        {
+          parent: '@for evaluates a block a certain number of times.',
+          children: []
+        },
+        {
+          parent: '@while evaluates a block until a certain condition is met.',
+          children: []
+        }
+      ]
+    }),
+
+    new SlideData({
+      title: 'switchFilter in CSS',
+      bodyIsHTML: false,
+      bodyText: `Generating the switchFilter (animated border) in the Legacy system is dark and complex. Today, I will try to replicate the simple animation on its border with CSS (and maybe some dark magic)`,
+      showSwitchFilter: true
     }),
   ];
 </script>
