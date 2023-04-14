@@ -9,6 +9,8 @@
   ],
   "exclude": [],
   "compilerOptions": {
+    "importsNotUsedAsValues": "remove",
+    "isolatedModules": false,
     "composite": true
   }
 }
