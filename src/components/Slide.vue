@@ -21,7 +21,9 @@
     subTitle: null,
     links: [],
     smallText: null,
-    showSwitchFilter: false
+    showSwitchFilter: false,
+	smallerImgs: false,
+	showColumnDemo: false
   });
 
   const clickedDiv = ref<number | 0>(0);
@@ -39,6 +41,8 @@
       slide.links = props.slide.links;
       slide.smallText = props.slide.smallText;
       slide.showSwitchFilter = props.slide.showSwitchFilter;
+      slide.smallerImgs = props.slide.smallerImgs;
+      slide.showColumnDemo = props.slide.showColumnDemo;
     }
   }
   //#endregion
@@ -99,14 +103,53 @@
         <div class="box" @click="selectDiv(1)" :class="{'switchFilter': clickedDiv == 1}">1</div>
         <div class="box" @click="selectDiv(2)" :class="{'switchFilter': clickedDiv == 2}">2</div>
       </div>
+
+      <div class="column-demo" v-if="slide.showColumnDemo">
+        <div class="col-title">Flexbox Implementation:</div>
+		<div class="flex">
+			<div class="f-child">Flex 1</div>
+			<div class="f-child">Flex 2</div>
+			<div class="f-child">Flex 3</div>
+		</div>
+
+		<div class="col-title">Grid Implementation:</div>
+		<div class="grid">
+			<div class="g-child">Grid 1</div>
+			<div class="g-child">Grid 2</div>
+			<div class="g-child">Grid 3</div>
+			<div class="g-child">Grid 4</div>
+		</div>
+
+		<div class="col-title">Table Implementation:</div>
+		<div id="table">
+			<div class="tr">
+				<div class="td">Row 1 Col 1</div>
+				<div class="td">Row 1 Col 2</div>
+			</div>
+			<div class="tr">
+				<div class="td">Row 2 Col 1</div>
+				<div class="td">Row 2 Col 2</div>
+			</div>
+		</div>
+
+		<div class="col-title">Float Implementation:</div>
+		<div class="wMarg">
+			<div class="l cell-style float-item">Div 1</div>
+			<div class="r cell-style float-item">Div 3</div>
+
+			<div class="cell-style float-item">Div 2</div>
+		</div>
+      </div>
       
       <div class="imgs" v-if="slide.imgs.length > 0">
-        <img v-for="(img, index) in slide.imgs" :src="img" alt="" :key="img + index" />
+        <img v-for="(img, index) in slide.imgs" :src="img" alt="" :key="img + index" :class="{'mH200': slide.smallerImgs}" />
       </div>
     </div>
 
     <div class="links" v-if="slide.links.length > 0">
-      <a v-for="(link, index) in slide.links" :href="link.href" :key="index">{{ link.linkName }}</a>
+	  <div v-for="(link, index) in slide.links" :key="index">
+      	<a  :href="link.href" target="_blank" rel="noopener noreferrer">{{ link.linkName }}</a>
+	  </div>
     </div>
   </div>
 
@@ -120,6 +163,12 @@
 <style lang="scss" scoped>
 @import '../assets/mixin.scss';
 @import '../assets/variables.scss';
+
+.links {
+	position: relative;
+	z-index: 900;
+}
+
 .slide {
   padding: 20px;
   @include bgImgConfig(url(/src/assets/imgs/bg4.jpg), fixed);
@@ -155,13 +204,20 @@
   }
 }
 
+.col-title {
+	text-align: center;
+	margin: 30px auto 10px auto;
+	@include textFormats(25px, 700, $dark);
+}
+
 .imgs {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 10px;
   img {
-    max-height: 200px;
+    max-height: 300px;
   }
 }
 

@@ -22,6 +22,8 @@ export class SlideData {
   smallText: string | null = null;
 
   showSwitchFilter: boolean = false;
+  showColumnDemo: boolean = false;
+  smallerImgs: boolean = false;
 
   constructor(slide?: Partial<SlideData>) {
     Object.assign(this, slide);
