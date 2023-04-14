@@ -44,8 +44,12 @@
   //#endregion
 
   const selectDiv = (num: number) => {
-    clickedDiv.value = num;
-    console.warn("hello", clickedDiv)
+	  setTimeout(() => {
+		clickedDiv.value = 0;		
+	}, 500);
+	setTimeout(() => {
+		clickedDiv.value = num;		
+	}, 600);
   }
 
   
@@ -165,11 +169,13 @@
   position: relative;
   z-index: 900;
   display: flex;
+  gap: 20px;
+  width: 90%;
+  margin: 30px auto;
   .box {
     flex: 1;
-    padding: 50px 0;
-    // border: 2px solid $dark;
-    // border-radius: 20px;
+    padding: 100px 0;
+    background: $primary-color;
     text-align: center;
     cursor: pointer;
   }
@@ -182,9 +188,9 @@
   border-image: repeating-linear-gradient(135deg,#118617 0 10px,#118617 0 20px,#118617 0 30px) 2;
   -webkit-mask: 
     conic-gradient(from 180deg at top 4px right 4px, #0000 90deg,#000 0)
-     var(--animate,200%) 0  /200% var(--animate,4px) border-box no-repeat,
+     var(--animate,300%) 0  /300% var(--animate,4px) border-box no-repeat,
     conic-gradient(at bottom 4px left  4px,  #0000 90deg,#000 0)
-     0   var(--animate,200%)/var(--animate,4px) 200% border-box no-repeat,
+     0   var(--animate,300%)/var(--animate,4px) 300% border-box no-repeat,
     linear-gradient(#000 0 0) padding-box no-repeat;
   transition: .3s, -webkit-mask-position .3s .3s;
   --animate: 100%;
