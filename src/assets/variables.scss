@@ -4,3 +4,13 @@ $tertiary-color: rgb(128, 78, 148);
 $dark: rgb(29, 28, 28);
 $light: grey;
 $clear: rgb(202, 199, 199);
+
+
+// Maps
+// Could be compared to Arrays
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 700
+);

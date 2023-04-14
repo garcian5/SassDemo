@@ -68,7 +68,7 @@
 	border: 1px solid $dark;
 	padding: 15px;
 	text-align: center;
-	@include textFormats(25px, 500);
+	@include textFormats(25px, "regular");
 }
 .wMarg {
 	width: 90%;

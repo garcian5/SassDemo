@@ -175,18 +175,18 @@
 }
 .slide-title {
   text-align: center;
-  @include textFormats(65px, 700);
+  @include textFormats(65px, "bold");
   @include gradientFont(linear-gradient(45deg, #1c3aaf, #53af42), #78f392);
 }
 
 .slide-subtitle {
-  @include textFormats(30px, 600);
+  @include textFormats(30px, "semibold");
   color: $secondary-color;
   text-align: center;
   margin-top: 10px;
 }
 .slide-small {
-  @include textFormats(20px, 400);
+  @include textFormats(20px, "regular");
 }
 
 .slide-body {
@@ -195,7 +195,7 @@
   min-height: calc(100vh - 180px);
   margin-top: 20px;
   .slide-text {
-    @include textFormats(20px, 500, $dark);
+    @include textFormats(20px, "medium", $dark);
     margin: 30px;
     white-space: pre-line;
     li {
@@ -207,7 +207,7 @@
 .col-title {
 	text-align: center;
 	margin: 30px auto 10px auto;
-	@include textFormats(25px, 700, $dark);
+	@include textFormats(25px, "bold", $dark);
 }
 
 .imgs {
@@ -259,7 +259,7 @@
   width: 100%;
 }
 .btn-def {
-  @include textFormats(40px, 600);
+  @include textFormats(40px, "semibold");
   transform: translateX(-50%);
   z-index: 10;
   cursor: pointer;

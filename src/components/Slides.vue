@@ -62,7 +62,7 @@
 
     new SlideData({
       title: 'SASS/SCSS',
-      subTitle: 'What is SASS',
+      subTitle: 'What is SASS?',
       bodyIsHTML: false,
       bodyText: `SASS stands for Syntactically Awesome Stylesheet. It is a superset of CSS which means all valid CSS is also valid SCSS.
       
@@ -82,7 +82,8 @@
           linkName: 'Sass Documentation Link',
           href: 'https://sass-lang.com/'
         }
-      ]
+      ],
+	  imgs: ['public/imgs/think.png']
     }),
 
     new SlideData({
@@ -230,7 +231,7 @@
       bodyList: [
         {
           parent: 'Cypress => the Advanced Editor & E-sign team uses this for e2e testing.',
-          children: ['This can be installed within your Vue project.']
+          children: ['A front end testing tool for web applications.','This can be installed within your Vue project.']
         },
         {
           parent: 'TightVnc => for iOS device testing',

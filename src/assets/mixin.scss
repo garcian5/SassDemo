@@ -31,8 +31,8 @@
   background-attachment: $attachment;
 }
 
-@mixin textFormats($size, $weight: 500, $color: $secondary-color) {
+@mixin textFormats($size, $weight: "medium", $color: $secondary-color) {
   font-size: $size;
-  font-weight: $weight;
+  font-weight: map-get($font-weights, $weight);
   color: $color;
 }
