@@ -39,7 +39,7 @@
       bodyList: [
         {
           parent: 'SASS/SCSS',
-          children: ['What is SASS?', 'Nesting', 'Variables & Object Variables', 'Mixins, Functions, @extends', 'Flow Control']
+          children: ['What is SASS?', 'Nesting', 'Variables', 'Mixins, Functions, @extend', 'Flow Control']
         },
         {
           parent: 'Different Ways to Create Grid Layouts with CSS',
@@ -104,6 +104,26 @@
         }
       ],
       imgs: ['public/imgs/nest.jpg', 'public/imgs/nest2.jpg']
+    }),
+
+    new SlideData({
+      title: 'Variables',
+      bodyIsHTML: false,
+      bodyText: `Sass variables are one of the most useful tools. Variables make it possible to reduce repetition, do complex math, configure libraries, and much more.`,
+      bodyList: [
+        {
+          parent: 'Although CSS has variables now, their current compatibility across browsers is about 90%.',
+          children: []
+        },
+        {
+          parent: 'That may sound like a good percentage but what makes SASS variables a little better is that they don’t compile into CSS variables but rather, they compile to the actual value.',
+          children: []
+        },
+        {
+          parent: 'Sass variables are imperative, which means if you use a variable and then change its value, the earlier use will stay the same. CSS variables are declarative, which means if you change the value, it’ll affect both earlier uses and later uses.',
+          children: []
+        }
+      ]
     }),
   ];
 </script>
